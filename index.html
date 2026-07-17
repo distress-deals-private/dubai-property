@@ -85,19 +85,21 @@
       color: #fff;
     }
 
-    /* Hero */
+    /* Hero — без фото */
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 40px;
       padding: 50px 0 60px;
-      min-height: 80vh;
+      min-height: 70vh;
       background: linear-gradient(135deg, #0d0d0d 0%, #1a150e 100%);
       position: relative;
+      text-align: center;
     }
     .hero-content {
-      flex: 1 1 50%;
+      max-width: 800px;
       z-index: 1;
       position: relative;
     }
@@ -119,6 +121,8 @@
       margin: 1.8rem 0 2.2rem;
       font-size: 1rem;
       line-height: 2;
+      text-align: left;
+      display: inline-block;
     }
     .hero-content .benefits li {
       display: flex;
@@ -131,34 +135,8 @@
       font-weight: 600;
       font-size: 1.2rem;
     }
-    .hero-image {
-      flex: 1 1 40%;
-      z-index: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 300px;
-    }
-    /* === СТИЛЬ ДЛЯ ФОТО === */
-    .hero-photo {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 20px;
-      object-fit: cover;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      border: 1px solid rgba(201, 169, 110, 0.2);
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .hero-photo {
-        max-width: 280px;
-      }
-    }
     @media (max-width: 640px) {
       .hero {
-        flex-direction: column;
         padding: 30px 0;
         min-height: auto;
       }
@@ -300,7 +278,7 @@
       padding-top: 20px;
     }
 
-    /* CTA */
+    /* CTA — низ сайта */
     .cta-block {
       text-align: center;
       padding: 50px 0 30px;
@@ -308,6 +286,31 @@
     .cta-block h2 {
       margin-bottom: 30px;
     }
+
+    /* Блок с ботом — рамка */
+    .bot-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 169, 110, 0.3);
+      border-radius: 20px;
+      padding: 30px 24px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      transition: 0.3s;
+    }
+    .bot-block:hover {
+      border-color: #c9a96e;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .bot-block p {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 18px;
+      font-weight: 300;
+    }
+    .bot-block .btn {
+      min-width: 200px;
+    }
+
     .cta-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -371,6 +374,9 @@
       .cta-buttons .btn {
         min-width: 100%;
       }
+      .bot-block .btn {
+        min-width: 100%;
+      }
       .footer {
         flex-direction: column;
         gap: 12px;
@@ -392,7 +398,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (без фото) -->
   <section class="hero">
     <div class="hero-content">
       <h1 class="lang-en-only">Egor Tsapenkov</h1>
@@ -414,14 +420,9 @@
       <a href="https://forms.gle/ibqe9cEVQfJPuLFr6" target="_blank" rel="noopener" class="btn btn-primary lang-en-only">Get a free consultation →</a>
       <a href="https://forms.gle/ibqe9cEVQfJPuLFr6" target="_blank" rel="noopener" class="btn btn-primary lang-ru-only">Получить консультацию →</a>
     </div>
-
-    <!-- ========== ФОТО ========== -->
-    <div class="hero-image">
-      <img src="images/egor.jpg" alt="Egor Tsapenkov" class="hero-photo" loading="lazy" />
-    </div>
   </section>
 
-  <!-- STATS -->
+  <!-- STATS (исправлено: 12 без "+", hours в подписи) -->
   <section class="stats fade-section" id="statsSection">
     <div class="stat-item">
       <div class="stat-number" data-count="6">6+</div>
@@ -434,9 +435,9 @@
       <div class="stat-label lang-ru-only">Закрытых сделок</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-count="12">12 hrs</div>
-      <div class="stat-label lang-en-only">Fastest deal — from contact to signed contract</div>
-      <div class="stat-label lang-ru-only">Самый быстрый кейс — от обращения до подписания</div>
+      <div class="stat-number" data-count="12">12</div>
+      <div class="stat-label lang-en-only">hours from contact to signed contract — our fastest deal</div>
+      <div class="stat-label lang-ru-only">часов от обращения до подписания — наш самый быстрый кейс</div>
     </div>
   </section>
 
@@ -515,15 +516,27 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ======= НИЖНИЙ БЛОК ======= -->
   <section class="cta-block fade-section">
+
     <h2 class="lang-en-only">Ready to work with us?</h2>
     <h2 class="lang-ru-only">Готовы с нами работать?</h2>
+
+    <!-- Блок с ботом (рамка) -->
+    <div class="bot-block">
+      <p class="lang-en-only">Browse our current Distress Deals — updated in real time via Distress Radar Dubai Bot</p>
+      <p class="lang-ru-only">Посмотрите наши актуальные предложения — обновляются в реальном времени через Distress Radar Dubai Bot</p>
+      <a href="https://t.me/DistressRadarDubaiBot" target="_blank" rel="noopener" class="btn btn-outline-gold">
+        <span class="lang-en-only">Open in Telegram →</span>
+        <span class="lang-ru-only">Открыть в Telegram →</span>
+      </a>
+    </div>
+
+    <!-- Две кнопки -->
     <div class="cta-buttons">
       <a href="https://forms.gle/ibqe9cEVQfJPuLFr6" target="_blank" rel="noopener" class="btn btn-primary lang-en-only">Get a consultation on selling your property</a>
       <a href="https://forms.gle/ibqe9cEVQfJPuLFr6" target="_blank" rel="noopener" class="btn btn-primary lang-ru-only">Получить консультацию по продаже</a>
-      <a href="https://t.me/DistressRadarDubaiBot" target="_blank" rel="noopener" class="btn btn-outline-gold lang-en-only">Get our current distress listings</a>
-      <a href="https://t.me/DistressRadarDubaiBot" target="_blank" rel="noopener" class="btn btn-outline-gold lang-ru-only">Получить список наших предложений</a>
+
       <a href="https://wa.me/971556188078" target="_blank" rel="noopener" class="btn btn-outline-white lang-en-only">Contact our manager</a>
       <a href="https://wa.me/971556188078" target="_blank" rel="noopener" class="btn btn-outline-white lang-ru-only">Связаться с менеджером</a>
     </div>
